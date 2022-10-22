@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-processor-deployment
+  labels:
+    app: email-processor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-processor
+  template:
+    metadata:
+      labels:
+        app: email-processor
+    spec:
+      containers:
+        - name: email-processor
+          image: CONTAINER_IMAGE

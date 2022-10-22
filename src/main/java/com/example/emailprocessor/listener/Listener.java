@@ -14,7 +14,7 @@ public class Listener {
 	private final static String subject = "Welcome to our service!";
 	private final static String message = "Welcome %s to our service!";
 
-	@KafkaListener(topics = "${kafka.topic.name}", groupId = "${spring.kafka.consumer.group-id}")
+	@KafkaListener(topics = "${kafka.topic.name}", groupId = "${kafka.consumer.group-id}")
 	void listen(User user) {
 		mailService.sendEmail(user.getEmail(), subject, String.format(message, user.getFirstName()));
 	}
